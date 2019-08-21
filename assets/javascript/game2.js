@@ -1,4 +1,10 @@
 // Psuedocode all the directions//
+
+// Answers that will be choosen at random //
+var movie = ["rudy", "hook", "batman", "snatch", "jaws", "pyscho", "gremlins"];
+
+
+
 // Press Any Key To Get Started //
 document.onkeyup = function () {
 // Captures user guesses //
@@ -6,22 +12,21 @@ document.onkeyup = function () {
     toLowerCase();
 
     console.log(userguess);
-}
 
-// Answers that will be choosen at random //
-var answer = ["rudy", "hook", "batman", "snatch", "jaws", "pyscho", "gremlins"];
-
-// Pick random word //
-var rand = answer[Math.floor(Math.random() * answer.length)];
+    // Pick random word //
+  var rand = movie[Math.floor(Math.random() * movie.length)];
   console.log(rand);
 
-
-// Identify Correct Guesses //
-
+}
 
 
 
-// Identify Incorrect Guesses //
+// Identify Correct Guesses and make them appear//
+
+
+
+
+// Identify Incorrect Guesses and make them appear//
 
 
 
