@@ -5,6 +5,7 @@ var movie = ["rudy", "hook", "batman", "snatch", "jaws", "pyscho", "gremlins"];
 
 
 
+
 // Press Any Key To Get Started //
 document.onkeyup = function () {
 // Captures user guesses //
@@ -37,19 +38,19 @@ document.onkeyup = function () {
 
 
 // Limit the number of guesses //
-
+var guessRemaining = 10;
 
 
 
 
 // Cumulate Wins //
-
+var wins = 0;
 
 
 
 
 // Cumulate Loses //
-
+var loses = 0;
 
 
 
