@@ -1,7 +1,7 @@
 // Pseudocode all the directions//
 
 // Answers that will be choosen at random //
-var movie = ["rudy", "hook", "batman", "snatch", "jaws", "pyscho", "gremlins"];
+var movie = ["rudy", "hook", "jurassic park", "snatch", "jaws", "pyscho", "gremlins"];
 
 
 
@@ -12,17 +12,18 @@ document.onkeyup = function () {
   var userguess = String.fromCharCode(event.keyCode).
     toLowerCase();
 
-    // console.log(userguess); //
+    console.log(userguess);
 
    
 }
 
     // Pick random word //
     var rand = movie[Math.floor(Math.random() * movie.length)];
-    // console.log(rand);
+    console.log(rand);
 
 
 // Make movie appear in underscore //
+var wrongGuess = [];
 var rightGuess = [];
 var numLetters = [];
 var underscore = 0;
@@ -51,19 +52,18 @@ console.log(rightGuess);
 
 // Identify Incorrect Guesses and make them appear//
 
-      // Note - wrong guesses empty array
-
-
-// Make random answers appear with underscores //
-
 
 
 
 // Limit the number of guesses //
 var guessRemaining = 10;
 
-
-
+for (var i = 0; i > guessRemaining; i--) {
+  if (rightGuess !== numLetters) {
+    guessRemaining --;
+  } 
+}
+document.getElementById("guessesLeft").innerHTML = guessRemaining;
 
 // Cumulate Wins //
 var wins = 0;
@@ -91,5 +91,3 @@ var loses = 0;
 // Add Theme song to movie they guess right //
 // Add image from movie when they guess right //
 
-// Notes: 1. Type function and put user guess in it to start it
-//        3. 
