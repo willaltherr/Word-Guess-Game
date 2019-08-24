@@ -1,54 +1,101 @@
-// Create an array of words //
-var word = ["rudy", "hook", "batman", "snatch", "jaws", "pyscho", "gremlins"];
+// Pseudocode all the directions//
 
-// Pick random word //
-  var randNum = Math.floor(Math.random() * word.length);
-  var choosenWord = word[randNum];
-  var rightWord = [];
-  var wrongWord = [];
-  var underScore = [];
-
-// Dom manipulation //
-  var docUnderScore = document.getElementsByClassName('underscore');
-  var docRightGuess = document.getElementsByClassName('rightGuess');
-  var docWrongGuess = document.getElementsByClassName('wrongGuess');
+// Answers that will be choosen at random //
+var movie = ["rudy", "hook", "snatch", "jaws", "pyscho", "gremlins"];
+var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 
 
-console.log(choosenWord);
+// Press Any Key To Get Started //
+document.onkeyup = function () {
+// Captures user guesses //
+  var userguess = String.fromCharCode(event.keyCode).
+    toLowerCase();
 
-// Create underscore based on word length array //
-var generateUnderscore = () => {
-  for(var i = 0; i < choosenWord.length; i++) {
-    underScore.push('_');
-  }
-  return underScore;
+    console.log(userguess);
+
+   
 }
 
-
-// Get users guess //
-document.addEventListener('keypress', (event) => {
-  var keyword = String.fromCharCode(event.keyCode);
-// User guess is right //
-  if(choosenWord.indexOf(keyword) > -1) {
-    // Add to right words array //
-    rightWord.push(keyword);
-    // Replace underscore with correct letter
-    underScore[choosenWord.indexOf(keyword)] = keyword;
-    docUnderScore[0].innerHTML = underScore.join(' ');
-    docRightGuess[0].innerHTML = rightWord;
-    // Check to see if user word matches user guesses //
-    if(underScore.join('') == choosenWord) {
-      alert('You Win');
-    }
-  }
-    // Add to wrong words array //
-  else {
-    wrongWord.push(keyword);
-    docWrongGuess[0].innerHTML = wrongWord;
-
-  }
-});
+    // Pick random word //
+    var rand = movie[Math.floor(Math.random() * movie.length)];
+      // console.log(rand);
 
 
-UnderScore[0].innerHTML = generateUnderscore().join(' ');
+// Make movie appear in underscore //
+var newAnswer = [];
+var numLetters = [];
+var underscore = 0;
+
+numLetters = rand.split("");
+  console.log(numLetters);
+
+underscore = numLetters.length;
+  // console.log(underscore);
+
+for (var i = 0; i < numLetters.length; i++) {
+  newAnswer.push("_");
+}
+
+document.getElementById("newAnswer").innerHTML = newAnswer;
+
+
+  console.log(newAnswer);
+
+
+
+// Identify Correct Guesses and make them appear//
+var rightGuess = [];
+var userguess = movie[rand];
+
+if (userguess === numLetters) {
+  userguess.push(event.keycode);
+}
+ // console.log(rightGuess);
+
+document.getElementById("rightGuess").innerHTML = rightGuess;
+
+// Identify Incorrect Guesses and make them appear//
+var wrongGuess = [];
+
+
+
+
+// Limit the number of guesses //
+var guessRemaining = 0;
+
+for (var i = 0; i < 10; i++) {
+  if (wrongGuess !== numLetters) {
+    // console.log(i);
+    guessRemaining -1;
+  } 
+}
+document.getElementById("guessesLeft").innerHTML = guessRemaining;
+
+
+// Cumulate Wins //
+var wins = 0;
+
+
+
+
+// Cumulate Loses //
+var loses = 0;
+
+
+
+
+// Restart Game After you win or lose //
+
+
+
+
+
+
+
+
+
+// Bonus //
+// Add Theme song to movie they guess right //
+// Add image from movie when they guess right //
+
